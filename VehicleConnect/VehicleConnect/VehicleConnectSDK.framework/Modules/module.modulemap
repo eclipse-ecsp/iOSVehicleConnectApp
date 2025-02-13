@@ -1,0 +1,11 @@
+framework module VehicleConnectSDK {
+  umbrella header "VehicleConnectSDK.h"
+  export *
+
+  module * { export * }
+}
+
+module VehicleConnectSDK.Swift {
+  header "VehicleConnectSDK-Swift.h"
+  requires objc
+}

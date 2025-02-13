@@ -1,0 +1,51 @@
+name: Search text in GitHub repo
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  search_text:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Search multiple patterns and save results to a CSV file
+      - name: Read CSV file to get Search keyword and do search and save result to CSV
+        run: |
+          OUTPUT_FILE="search_result_ios_vehicle_connect_app.csv"
+          
+          # Initialize the CSV file with headers.
+          echo "Pattern in code,File Path,Line Number,code" > $OUTPUT_FILE
+          
+          # # Use grep to search for the pattern in the codebase
+          keywordList=( "tbm" "bpilot" "K0-K9" "GSDP-GENERIC" "bsrf" "BTA4S" "RTBM" "ATB4SV2" "SDPR" "fca" "tomtom" "gsdp" "gsdp" "bpilotIdentifier" "RAM_BOX" "Spark" "Sprint" "Audi" "ATT" "Nissan" "AT&T" "jeep" "fcaindia" "jeeplife" "polaris" "rogers" "maserati" "stellantis" "stln" "stla" "cr-" "mopar" "uconnect" "alpharomeo" "ram" "meridien" "sprintdrive" "compass" "RAMBOX" "gigya" "fcl" "mpad")
+          index=0
+           while [ $index -lt ${#keywordList[@]} ]; do
+            patternItem=${keywordList[$index]}
+            echo "Searching for pattern: $patternItem"
+            grep -rni   --exclude="search.yml" --exclude="search_result_ios_vehicle_connect_app.csv" --exclude="checkstyle-suppressions.xml" --exclude="checkstyle.xml" --exclude="pom.xml" --exclude="settings.xml" --exclude="gradlew" --exclude-dir="gradle" --exclude-dir="harman_checks.xml" -e "$patternItem" | while IFS=: read -r file line text; do
+              # Escape commas and special characters in the text to ensure proper CSV formatting
+              escaped_text=$(echo "$text" | sed 's/,/\\,/g')
+              # Append the results to the CSV file with the pattern included
+              echo "\"$patternItem\",\"$file\",\"$line\",\"$escaped_text\"" >> $OUTPUT_FILE
+            done
+            ((index=$(expr $index + 1)))
+          done
+
+          # Create a directory to store the output CSV file
+          mkdir -p artifacts
+          mv $OUTPUT_FILE artifacts/
+          
+      # Step 3: Upload the CSV file as an artifact 
+      - name: Upload search results CSV
+        uses: actions/upload-artifact@v4
+        with:
+          name: search_result_ios_vehicle_connect_app
+          path: artifacts/search_result_ios_vehicle_connect_app.csv
+

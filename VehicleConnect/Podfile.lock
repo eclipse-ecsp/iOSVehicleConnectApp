@@ -1,0 +1,25 @@
+PODS:
+  - AppAuth (1.7.5):
+    - AppAuth/Core (= 1.7.5)
+    - AppAuth/ExternalUserAgent (= 1.7.5)
+  - AppAuth/Core (1.7.5)
+  - AppAuth/ExternalUserAgent (1.7.5):
+    - AppAuth/Core
+  - SwiftLint (0.55.1)
+
+DEPENDENCIES:
+  - AppAuth (= 1.7.5)
+  - SwiftLint (= 0.55.1)
+
+SPEC REPOS:
+  trunk:
+    - AppAuth
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  AppAuth: 501c04eda8a8d11f179dbe8637b7a91bb7e5d2fa
+  SwiftLint: 3fe909719babe5537c552ee8181c0031392be933
+
+PODFILE CHECKSUM: 1d355ec09ef14cf5e5432bcb2d591fcc8d357675
+
+COCOAPODS: 1.15.2

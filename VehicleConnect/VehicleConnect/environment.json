@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Test",
+        "client_Id": "clientid",
+        "client_secret": "clientsecret",
+        "base_url": "https://localhost:8080/",
+        "profile_url": "https://localhost:8080/",
+        "signin_url": "https://localhost:8080/",
+        "signup_url": "https://localhost:8080/",
+        "redirect_url": "sdk://authorization",
+        "compatibility_url": "https://localhost:8080",
+        "scopes": [
+            "SelfManage"
+        ]
+    }
+]

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bom xmlns="http://cyclonedx.org/schema/bom/1.4" version="1" serialNumber="urn:uuid:ff970649-80a9-46f9-ac4c-8ea67b09b524">
+  <metadata>
+    <timestamp>2024-08-27T16:05:23Z</timestamp>
+    <tools>
+      <tool>
+        <vendor>CycloneDX</vendor>
+        <name>cyclonedx-cocoapods</name>
+        <version>1.2.0</version>
+      </tool>
+    </tools>
+  </metadata>
+  <components>
+    <component type="library">
+      <author>William Denniss &lt;wdenniss@google.com&gt;, Steven E Wright &lt;stevewright@google.com&gt;, Julien Bodet &lt;julien.bodet92@gmail.com&gt;</author>
+      <publisher>William Denniss &lt;wdenniss@google.com&gt;, Steven E Wright &lt;stevewright@google.com&gt;, Julien Bodet &lt;julien.bodet92@gmail.com&gt;</publisher>
+      <name>AppAuth</name>
+      <version>1.7.5</version>
+      <description><![CDATA[AppAuth for iOS and macOS is a client SDK for communicating with [OAuth 2.0]
+(https://tools.ietf.org/html/rfc6749) and [OpenID Connect]
+(http://openid.net/specs/openid-connect-core-1_0.html) providers. It strives to
+directly map the requests and responses of those specifications, while following
+the idiomatic style of the implementation language. In addition to mapping the
+raw protocol flows, convenience methods are available to assist with common
+tasks like performing an action with fresh tokens.
+
+It follows the OAuth 2.0 for Native Apps best current practice
+([RFC 8252](https://tools.ietf.org/html/rfc8252)).]]></description>
+      <hashes>
+        <hash alg="SHA-1">501c04eda8a8d11f179dbe8637b7a91bb7e5d2fa</hash>
+      </hashes>
+      <licenses>
+        <license>
+          <name>Apache License, Version 2.0</name>
+        </license>
+      </licenses>
+      <purl>pkg:cocoapods/AppAuth@1.7.5</purl>
+      <bomRef>pkg:cocoapods/AppAuth@1.7.5</bomRef>
+      <externalReferences>
+        <reference type="website">
+          <url>https://openid.github.io/AppAuth-iOS</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library">
+      <author>William Denniss &lt;wdenniss@google.com&gt;, Steven E Wright &lt;stevewright@google.com&gt;, Julien Bodet &lt;julien.bodet92@gmail.com&gt;</author>
+      <publisher>William Denniss &lt;wdenniss@google.com&gt;, Steven E Wright &lt;stevewright@google.com&gt;, Julien Bodet &lt;julien.bodet92@gmail.com&gt;</publisher>
+      <name>AppAuth/Core</name>
+      <version>1.7.5</version>
+      <description><![CDATA[AppAuth for iOS and macOS is a client SDK for communicating with [OAuth 2.0]
+(https://tools.ietf.org/html/rfc6749) and [OpenID Connect]
+(http://openid.net/specs/openid-connect-core-1_0.html) providers. It strives to
+directly map the requests and responses of those specifications, while following
+the idiomatic style of the implementation language. In addition to mapping the
+raw protocol flows, convenience methods are available to assist with common
+tasks like performing an action with fresh tokens.
+
+It follows the OAuth 2.0 for Native Apps best current practice
+([RFC 8252](https://tools.ietf.org/html/rfc8252)).]]></description>
+      <licenses>
+        <license>
+          <name>Apache License, Version 2.0</name>
+        </license>
+      </licenses>
+      <purl>pkg:cocoapods/AppAuth@1.7.5#Core</purl>
+      <bomRef>pkg:cocoapods/AppAuth@1.7.5#Core</bomRef>
+      <externalReferences>
+        <reference type="website">
+          <url>https://openid.github.io/AppAuth-iOS</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library">
+      <author>William Denniss &lt;wdenniss@google.com&gt;, Steven E Wright &lt;stevewright@google.com&gt;, Julien Bodet &lt;julien.bodet92@gmail.com&gt;</author>
+      <publisher>William Denniss &lt;wdenniss@google.com&gt;, Steven E Wright &lt;stevewright@google.com&gt;, Julien Bodet &lt;julien.bodet92@gmail.com&gt;</publisher>
+      <name>AppAuth/ExternalUserAgent</name>
+      <version>1.7.5</version>
+      <description><![CDATA[AppAuth for iOS and macOS is a client SDK for communicating with [OAuth 2.0]
+(https://tools.ietf.org/html/rfc6749) and [OpenID Connect]
+(http://openid.net/specs/openid-connect-core-1_0.html) providers. It strives to
+directly map the requests and responses of those specifications, while following
+the idiomatic style of the implementation language. In addition to mapping the
+raw protocol flows, convenience methods are available to assist with common
+tasks like performing an action with fresh tokens.
+
+It follows the OAuth 2.0 for Native Apps best current practice
+([RFC 8252](https://tools.ietf.org/html/rfc8252)).]]></description>
+      <licenses>
+        <license>
+          <name>Apache License, Version 2.0</name>
+        </license>
+      </licenses>
+      <purl>pkg:cocoapods/AppAuth@1.7.5#ExternalUserAgent</purl>
+      <bomRef>pkg:cocoapods/AppAuth@1.7.5#ExternalUserAgent</bomRef>
+      <externalReferences>
+        <reference type="website">
+          <url>https://openid.github.io/AppAuth-iOS</url>
+        </reference>
+      </externalReferences>
+    </component>
+    <component type="library">
+      <author>JP Simard &lt;jp@jpsim.com&gt;</author>
+      <publisher>JP Simard &lt;jp@jpsim.com&gt;</publisher>
+      <name>SwiftLint</name>
+      <version>0.55.1</version>
+      <description><![CDATA[A tool to enforce Swift style and conventions.]]></description>
+      <hashes>
+        <hash alg="SHA-1">3fe909719babe5537c552ee8181c0031392be933</hash>
+      </hashes>
+      <licenses>
+        <license>
+          <id>MIT</id>
+        </license>
+      </licenses>
+      <purl>pkg:cocoapods/SwiftLint@0.55.1</purl>
+      <bomRef>pkg:cocoapods/SwiftLint@0.55.1</bomRef>
+      <externalReferences>
+        <reference type="website">
+          <url>https://github.com/realm/SwiftLint</url>
+        </reference>
+      </externalReferences>
+    </component>
+  </components>
+  <dependencies>
+    <dependency ref="pkg:cocoapods/AppAuth@1.7.5">
+      <dependency ref="pkg:cocoapods/AppAuth@1.7.5#Core"/>
+      <dependency ref="pkg:cocoapods/AppAuth@1.7.5#ExternalUserAgent"/>
+    </dependency>
+    <dependency ref="pkg:cocoapods/AppAuth@1.7.5#Core"/>
+    <dependency ref="pkg:cocoapods/AppAuth@1.7.5#ExternalUserAgent">
+      <dependency ref="pkg:cocoapods/AppAuth@1.7.5#Core"/>
+    </dependency>
+    <dependency ref="pkg:cocoapods/SwiftLint@0.55.1"/>
+  </dependencies>
+</bom>
