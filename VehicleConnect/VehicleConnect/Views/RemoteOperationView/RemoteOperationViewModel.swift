@@ -47,20 +47,10 @@ class RemoteOperationViewModel: ObservableObject {
             let result = await service.getROHistory(roRequest)
             switch result {
             case .success(let response):
-                self.history = response.model
-                if let commands = self.history {
-                    for command in (commands.filter { $0.roStatus == .success || $0.roStatus == .pending }) {
-                        if let status = command.roStatus {
-                            self.updateCommand(command, status)
-                        }
-                    }
-                }
+                handleHistory(response: response)
                 completion(true)
             case .failure(let error):
-                alertMessage = error.message
-                if !alertMessage.isEmpty {
-                    showingAlert = true
-                }
+                handleErrorMessage(error)
                 completion(false)
             }
         }
@@ -81,11 +71,7 @@ class RemoteOperationViewModel: ObservableObject {
                 completion(true)
                 self.showLoading = false
             case .failure(let error):
-                alertMessage = error.message
-                if !alertMessage.isEmpty {
-                    showingAlert = true
-                }
-                self.showLoading = false
+                handleErrorMessage(error)
                 completion(false)
             }
         }
@@ -109,14 +95,26 @@ class RemoteOperationViewModel: ObservableObject {
                     completion(false, "")
                 }
             case .failure(let error):
-                alertMessage = error.message
-                if !alertMessage.isEmpty {
-                    showingAlert = true
-                }
-                self.showLoading = false
+                handleErrorMessage(error)
                 completion(false, "")
             }
         }
+    }
+    
+    private func handleHistory(response: Response<[RemoteEventHistory]>) {
+        self.history = response.model
+        let commands = (response.model.filter { $0.roStatus == .success || $0.roStatus == .pending })
+        for command in commands where command.roStatus != nil {
+            self.updateCommand(command, command.roStatus!)
+        }
+    }
+    
+    private func handleErrorMessage(_ error: CustomError) {
+        alertMessage = error.message
+        if !alertMessage.isEmpty {
+            showingAlert = true
+        }
+        self.showLoading = false
     }
 
     /// This is called from RemoteOperationView to update the settings
@@ -186,31 +184,20 @@ class RemoteOperationViewModel: ObservableObject {
 
     /// Update command function is to  update the RoO UI data model acording to the actual status
     private func updateCommand(_ commandHistory: RemoteEventHistory, _ status: RemoteCommandStatus) {
-        let stateValue = RemoteEventStateValue(rawValue: commandHistory.roEvent.roDetail.state)
-        if let value = stateValue {
-            if let command = (commandData.first { $0.id == commandHistory.roEvent.eventId }) {
-                if status == .pending {
-                    let currentTime = Date().timeIntervalSince1970
-                    let apiTime = TimeInterval(commandHistory.roEvent.timestamp / 1000)
-                    let difference = currentTime - apiTime
-                    if difference < kDefaultDuration {
-                        command.commandStatus = .pending
-                    } else {
-                        command.commandStatus = .success
+        if let value = RemoteEventStateValue(rawValue: commandHistory.roEvent.roDetail.state), let command = (commandData.first { $0.id == commandHistory.roEvent.eventId }) {
+            if status == .pending {
+                let currentTime = Date().timeIntervalSince1970
+                let apiTime = TimeInterval(commandHistory.roEvent.timestamp / 1000)
+                let difference = currentTime - apiTime
+                command.commandStatus = difference < kDefaultDuration ? .pending : .success
+            }
+            else {
+                command.commandStatus = .success
+                command.stateValue = value
+                if command.stateType == .windows || command.stateType == .lights {
+                    command.options.forEach { item in
+                        item.isSelected = (command.stateValue == item.optionValue)
                     }
-                } else {
-                    command.commandStatus = .success
-                    command.stateValue = value
-                    if command.stateType == .windows || command.stateType == .lights {
-                        command.options.forEach { item in
-                            if command.stateValue == item.optionValue {
-                                item.isSelected = true
-                            } else {
-                                item.isSelected = false
-                            }
-                        }
-                    }
-
                 }
             }
         }
@@ -302,7 +289,8 @@ extension RemoteOperationViewModel {
         }
 
         @objc private func onVehicleChange(_ notification: NSNotification) {
-            getROHistory { _ in
+            getROHistory { isSuccess in
+                print("onVehicleChange RO History: \(isSuccess)")
             }
         }
         func removeVehicleChangeNotification() {

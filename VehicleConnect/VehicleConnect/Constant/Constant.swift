@@ -92,5 +92,7 @@ let kDeviceNotAssociated = "No device associated to the user"
 let vAssociated = "ASSOCIATED"
 let vActive = "Active"
 let kRemoteOperationFailed = " Remote Operation Failed"
+let kConfirm = "Confirm"
+let kCancel = "Cancel"
 
 // Notifications Constant

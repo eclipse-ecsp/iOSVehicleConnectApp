@@ -106,9 +106,6 @@ struct HomeView: View {
                         }
                     }
                 }
-                .onDisappear {
-
-                }
             }
         }
     }

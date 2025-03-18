@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/VehicleConnectSDK-Swift.h</key>
 		<data>
-		PaG/TSqWXh6B386rt1pt2Z8fYhI=
+		3waVqBeIWTNNgpohT4vVzr9Cku8=
 		</data>
 		<key>Headers/VehicleConnectSDK.h</key>
 		<data>
@@ -14,23 +14,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		m2zlxJ5/gYJmL4sxcVCSZHjL/aE=
+		xRL6Iz2MqD7GQ+/Z1VbjlxxK1rs=
 		</data>
 		<key>Modules/VehicleConnectSDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		zYcxFssRNTEbswfdZ7LwvOSs20k=
+		PR+MJ9dIuDbvdiyfnGe6V+PWVlQ=
 		</data>
 		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		FSPnLbho3G+LL9smI3XgVOqBIQ4=
+		gcwBsH4BgyFY4sVtNt+/xOKS3vY=
 		</data>
 		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		kO0/iU7hu+73UJ0XflYFGumzM1E=
+		jxULcfVReydR5dAbR66n21sjEio=
 		</data>
 		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		lUocnEWnzu/peOkMUX5yCS0OYmk=
+		mv0pmWRhZIVo+4L0xq1EDhRI/UU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -43,7 +43,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fllIXIzdl3BWTNE9QfM9YsY5Bx1+ruLCdJA+50qT7T0=
+			J1tbwkIcdz4TUzF0YrVf0uhTuqGKb1mVwQglufgiBw4=
 			</data>
 		</dict>
 		<key>Headers/VehicleConnectSDK.h</key>
@@ -57,28 +57,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ef7Gp1HqoKcSNF4Jxdfg4rSiy9M2DMzIolakHrZ+E54=
+			gziKuuHI+HE+jV1uPc3ccaD3JnyN55+ZaDRrTQjOeGA=
 			</data>
 		</dict>
 		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KnRdWE4y6t4QM5zi5JDptPdHFgJy1Tku+7GLkZS2aNM=
+			Qnesa0n4URGWAopawg9bGx36dUwkYV00BoCJ8LFzlyg=
 			</data>
 		</dict>
 		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			br9bfRwDMsmYDPAvKOCs13Rf+LrlZ0pGO0+86FTomak=
+			ep67EOkzwS9qtdwPfMLlkx5AHsfe3xiogpeO/dLxk8I=
 			</data>
 		</dict>
 		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			++qDgDA3J3/md1IG/vcnszyRKR85Gstm4HYHzpDGqo8=
+			9vTbBKBUXMEuRvi0myIxvgXqpjO6dhDNEt+29hbNREg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

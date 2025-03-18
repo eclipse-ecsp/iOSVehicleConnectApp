@@ -83,13 +83,16 @@ struct RemoteOperationView: View {
             }
         }
         .alert(kAlertTitle, isPresented: $viewModel.showingROAlert) {
-            Button("Confirm") {
+            Button(kConfirm) {
                 viewModel.updateSettings(command: selectedCommand)
             }
-            Button("cancel", role: .cancel) {}
+            Button(kCancel, role: .cancel) {
+                print("Cancel the action")
+            }
         } message: {
             Text(viewModel.alertMessage)
         }
+        
         .alert(isPresented: $viewModel.showingAlert, content: {
             Alert(title: Text(kAlertTitle), message: Text(viewModel.alertMessage))
         })
