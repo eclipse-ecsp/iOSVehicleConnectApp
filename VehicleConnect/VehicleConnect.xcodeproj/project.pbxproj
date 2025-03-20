@@ -460,6 +460,7 @@
 				5037B8CA2B76500200873DAF /* Sources */,
 				5037B8CB2B76500200873DAF /* Frameworks */,
 				5037B8CC2B76500200873DAF /* Resources */,
+				87DC27EF2D8BF8D700DAD36A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -617,6 +618,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VehicleConnect/Pods-VehicleConnect-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		87DC27EF2D8BF8D700DAD36A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+";
 		};
 		BA0D480F07C3A7C2BD0F7D3C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -891,7 +910,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"VehicleConnect/Preview Content\"";
-				DEVELOPMENT_TEAM = KB978TN9LG;
+				DEVELOPMENT_TEAM = 3696H6NZ5M;
 				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -916,7 +935,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.harman.vehicleconnects;
+				PRODUCT_BUNDLE_IDENTIFIER = org.eclipse.ecsp.vehicleconnectapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -935,13 +954,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = VehicleConnect/VehicleConnect.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: HARMAN INTERNATIONAL INDUSTRIES, INCORPORATED";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: HARMAN INTERNATIONAL INDUSTRIES, INCORPORATED";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"VehicleConnect/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 5NV8XFN9EY;
+				DEVELOPMENT_TEAM = 3696H6NZ5M;
 				ENABLE_MODULE_VERIFIER = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -967,10 +984,9 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.harman.vehicleconnect;
+				PRODUCT_BUNDLE_IDENTIFIER = org.eclipse.ecsp.vehicleconnectapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = VehicleConnectInHouseProfile;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = VehicleConnectInHouseProfile;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

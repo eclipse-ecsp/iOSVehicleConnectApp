@@ -77,7 +77,7 @@ extension HomeViewModel {
             if var vehiclesList = associatedVehicles {
                 vehiclesList = vehiclesList.filter {$0.deviceId != nil}
                 vehiclesList.forEach { vehicle in
-                    if vehicle.associationStatus == kAssociated && vehicle.associationStatus == kAssociated {
+                    if vehicle.associationStatus == kAssociated {
                         self.dispatchGroup.enter()
                         self.getVehicleProfile(vehicleId: vehicle.deviceId!) { profiles in
                             if var vehicleProfile = profiles?.first {

@@ -31,11 +31,16 @@ class EnvironmentConfiguration: ObservableObject, Mockable {
         loadEnvironment()
     }
 
+    
+    /// Description : Load all the environment
     func loadEnvironment() {
         environments = loadJSON(filename: "environment", type: [EnvironmentDetail].self)
         names = environments.map {$0.title}
     }
 
+    
+    /// Description : Used to select environment
+    /// - Parameter name: environment name
     func selectEnvironment(name: String) {
         if let environment = environments.filter({$0.title == name}).first {
             selectedEnvironment = environment
