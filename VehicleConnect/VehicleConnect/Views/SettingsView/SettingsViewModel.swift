@@ -23,13 +23,14 @@ import VehicleConnectSDK
 class SettingsViewModel: ObservableObject {
 
     @Published var headers = Header.allCases
-    
+
     func getBuildVersion() -> String {
         return Bundle.main.releaseVersionNumberPretty
     }
 }
 
 let kAccount = "Account"
+let kChangePassword = "Change Password"
 let kVehicleProfile = "Vehicle Profile"
 let kHelpSupport = "Help and Support"
 let kTermsOfUser = "Terms of Use"
@@ -56,7 +57,7 @@ enum Header: String, CaseIterable {
     var rows: [Row] {
         switch self {
         case .account:
-            return [.user]
+            return [.user, .changePassword]
         case .vehicle:
             return [.vehicleProfile]
         case .app:
@@ -69,6 +70,7 @@ enum Row: CaseIterable {
     case user
     case vehicleProfile
     case helpSupport
+    case changePassword
     case termsOfuse
     case privacyPolicy
     case appVersion
@@ -78,6 +80,8 @@ enum Row: CaseIterable {
         switch self {
         case .user:
             return "User value"
+        case .changePassword:
+            return kChangePassword
         case .vehicleProfile:
             return kVehicleProfile
         case .helpSupport:
@@ -95,7 +99,7 @@ enum Row: CaseIterable {
 
     var iconName: String {
         switch self {
-        case .user:
+        case .user, .changePassword:
             return "person"
         case .vehicleProfile:
             return "car"

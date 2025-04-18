@@ -31,6 +31,7 @@ struct SettingsView: View {
     @EnvironmentObject var appAuthentication: AppAuthentication
     @State private var showLoading = false
     @State private var showingAlert = false
+    @State private var showingChangePasswordAlert = false
     @State private var userEmail = Helper.getUserEmail()
     @State private var selectedVehicle = Helper.getSelectedVehicleName()
 
@@ -47,10 +48,24 @@ struct SettingsView: View {
                                 case .user:
                                     Text(userEmail)
                                         .font(.subheadline)
-                                case .helpSupport, .privacyPolicy, .termsOfuse:
+                                case .changePassword:
+                                    Button(action: {
+                                        self.showLoading = true
+                                        userViewModel.changePassword { isSuccess in
+                                            if isSuccess {
+                                                self.showingChangePasswordAlert = true
+                                            }
+                                            self.showLoading = false
+                                        }
+                                    }, label: {
                                         Text(row.title)
                                             .font(.subheadline)
-                                            .foregroundColor(.gray)
+                                            .foregroundColor(.black)
+                                    })
+                                case .helpSupport, .privacyPolicy, .termsOfuse:
+                                    Text(row.title)
+                                        .font(.subheadline)
+                                        .foregroundColor(.gray)
                                 case .vehicleProfile:
                                     NavigationLink(destination: VehicleProfileView()) {
                                         Text(row.title)
@@ -63,13 +78,12 @@ struct SettingsView: View {
                                     Text(viewModel.getBuildVersion())
                                 case .signOut:
                                     Button(action: {
-                                       self.showingAlert = true
+                                        self.showingAlert = true
                                     }, label: {
                                         Text(row.title)
                                             .font(.subheadline)
                                             .foregroundColor(.red)
                                     })
-
                                 }
                             }
                         }
@@ -94,6 +108,9 @@ struct SettingsView: View {
                 secondaryButton: .cancel()
             )
         }
+        .alert(isPresented: $showingChangePasswordAlert, content: {
+            Alert(title: Text(kAlertTitle), message: Text(kChangePasswordSuccess))
+        })
         .onAppear {
             selectedVehicle = Helper.getSelectedVehicleName()
             userEmail = Helper.getUserEmail()
@@ -105,8 +122,8 @@ struct SettingsView: View {
                     }
                     if let email = responseModel?.email {
                         Helper.setUserEmail(email: email
-                    )}
-               }
+                        )}
+                }
             }
         }
 

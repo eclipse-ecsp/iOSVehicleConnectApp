@@ -4,88 +4,143 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/VehicleConnectSDK-Swift.h</key>
-		<data>
-		3waVqBeIWTNNgpohT4vVzr9Cku8=
-		</data>
-		<key>Headers/VehicleConnectSDK.h</key>
-		<data>
-		1P6YRgD7nAU4y4DhUXkwm+hl55I=
-		</data>
 		<key>Info.plist</key>
 		<data>
-		xRL6Iz2MqD7GQ+/Z1VbjlxxK1rs=
+		PVUi77wWZpnbxo2gz9yx3WWytaE=
+		</data>
+		<key>Modules/VehicleConnectSDK.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
+		<data>
+		JDmttiClROsNanwiUe03p/ydx64=
 		</data>
 		<key>Modules/VehicleConnectSDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		PR+MJ9dIuDbvdiyfnGe6V+PWVlQ=
+		ZjG/bqfNVullF8lSTNmw2JUeGWU=
+		</data>
+		<key>Modules/VehicleConnectSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
+		<data>
+		6vJfd1bi7PYd7IEijKicn/PNVuE=
+		</data>
+		<key>Modules/VehicleConnectSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<data>
+		ChOZ7Y8dBUwPuTFYN4qJXGlNrXQ=
+		</data>
+		<key>Modules/VehicleConnectSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<data>
+		qRy/I5x2c6cOP32qgCtOc14cGzA=
+		</data>
+		<key>Modules/VehicleConnectSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
+		<data>
+		ChOZ7Y8dBUwPuTFYN4qJXGlNrXQ=
+		</data>
+		<key>Modules/VehicleConnectSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
+		<data>
+		xq4nwRWtrLTQfx4lNNX2ysy7tMI=
 		</data>
 		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		gcwBsH4BgyFY4sVtNt+/xOKS3vY=
+		6vJfd1bi7PYd7IEijKicn/PNVuE=
+		</data>
+		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
+		<data>
+		SfEiQWkfkySbqQ+mw1U73/mkqws=
 		</data>
 		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		jxULcfVReydR5dAbR66n21sjEio=
+		CeKTfzta7tyToEwAZdQlZHUKfsw=
+		</data>
+		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<data>
+		SfEiQWkfkySbqQ+mw1U73/mkqws=
 		</data>
 		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		mv0pmWRhZIVo+4L0xq1EDhRI/UU=
-		</data>
-		<key>Modules/module.modulemap</key>
-		<data>
-		X0XYtvF0JF2/5jM74ddad3pybgU=
+		89LFA4nqsRLzmHbMO91fOFQPQL4=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/VehicleConnectSDK-Swift.h</key>
+		<key>Modules/VehicleConnectSDK.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			J1tbwkIcdz4TUzF0YrVf0uhTuqGKb1mVwQglufgiBw4=
-			</data>
-		</dict>
-		<key>Headers/VehicleConnectSDK.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			rw7n5F/mn/qo7XiqPEGFB4LWI3AaFwehZYvOWUsNe9k=
+			SlOfzPk0ACToD7FmnOp6N8uyIknuH3NDHCviSnl1tC8=
 			</data>
 		</dict>
 		<key>Modules/VehicleConnectSDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gziKuuHI+HE+jV1uPc3ccaD3JnyN55+ZaDRrTQjOeGA=
+			qMnHJQfYOphrldTFj8/zliVHtBn63SK2RJcCZbDhHtc=
+			</data>
+		</dict>
+		<key>Modules/VehicleConnectSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			1xe2IDAQQNlcqft1Ms3BspXDdYFVa2YDfjDNEDFqQKA=
+			</data>
+		</dict>
+		<key>Modules/VehicleConnectSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			w82k/RcQ72xQmQOtzOll2kgAfxH4YJH7HSITmX54QFw=
+			</data>
+		</dict>
+		<key>Modules/VehicleConnectSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			blOvLEIRVqzX0v8IU/8zsgWYUWvJ+DtPeu0qe7rtsCc=
+			</data>
+		</dict>
+		<key>Modules/VehicleConnectSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			w82k/RcQ72xQmQOtzOll2kgAfxH4YJH7HSITmX54QFw=
+			</data>
+		</dict>
+		<key>Modules/VehicleConnectSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			iVkNhiESMb6tJqj2Qi5MMfKPcCZsuA6LGsjys1TLogs=
 			</data>
 		</dict>
 		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Qnesa0n4URGWAopawg9bGx36dUwkYV00BoCJ8LFzlyg=
+			1xe2IDAQQNlcqft1Ms3BspXDdYFVa2YDfjDNEDFqQKA=
+			</data>
+		</dict>
+		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			iPHgodqNqH18KbQd1I//H3WORoz4B6v1qf/nzKC9LhI=
 			</data>
 		</dict>
 		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ep67EOkzwS9qtdwPfMLlkx5AHsfe3xiogpeO/dLxk8I=
+			wEPKQvqTVtWO0qMmsMJVJaygQtxz62RIKTbq2uulfvg=
+			</data>
+		</dict>
+		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			iPHgodqNqH18KbQd1I//H3WORoz4B6v1qf/nzKC9LhI=
 			</data>
 		</dict>
 		<key>Modules/VehicleConnectSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9vTbBKBUXMEuRvi0myIxvgXqpjO6dhDNEt+29hbNREg=
-			</data>
-		</dict>
-		<key>Modules/module.modulemap</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			frLKFK8ElyjqGBXYrKsq2Rk+7v8FC9lYrKgnshy48YA=
+			S2ahypfgE/xBklnRApp+w9+WOlifS5aBQ3VjEqUr4fI=
 			</data>
 		</dict>
 	</dict>

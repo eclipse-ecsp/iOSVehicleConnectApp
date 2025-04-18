@@ -16,14 +16,14 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-#import <Foundation/Foundation.h>
+import UIKit
 
-//! Project version number for VehicleConnectSDK.
-FOUNDATION_EXPORT double VehicleConnectSDKVersionNumber;
-
-//! Project version string for VehicleConnectSDK.
-FOUNDATION_EXPORT const unsigned char VehicleConnectSDKVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <VehicleConnectSDK/PublicHeader.h>
-
-
+/// UIApplication  extension
+extension UIApplication {
+    var rootViewController: UIViewController? {
+        return UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .filter { $0.activationState == .foregroundActive }
+            .first?.keyWindow?.rootViewController
+    }
+}

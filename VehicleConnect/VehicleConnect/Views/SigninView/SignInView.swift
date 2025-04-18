@@ -42,7 +42,7 @@ struct SignInView: View {
                             environmentConfiguration.selectEnvironment(name: environmentName)
                         }
                     }), options: environmentConfiguration.names, maxWidth: 130, borderColor: Color.customBlue )
-                    .disabled(true)
+                   // .disabled(true)
 
                 }.zIndex(1)
                 Spacer()
@@ -57,15 +57,29 @@ struct SignInView: View {
                     Button(action: {
                         showLoading = true
                         viewModel.signIn { isSuccess in
-                            DispatchQueue.main.async {
                                 if isSuccess {
                                     appAuthentication.updateValidation(success: true)
                                 }
                                 showLoading = false
-                            }
                         }
                     }, label: {
                         Text(kSignIn)
+                            .font(.title3)
+                            .fontWeight(.heavy)
+                            .frame(width: screenWidth, height: 50)
+                            .foregroundColor(Color.customBlue)
+                    })
+
+                    Button(action: {
+                        showLoading = true
+                        viewModel.signUp { isSuccess in
+                                if isSuccess {
+                                   // appAuthentication.updateValidation(success: true)
+                                }
+                                showLoading = false
+                        }
+                    }, label: {
+                        Text(kSignUp)
                             .font(.title3)
                             .fontWeight(.heavy)
                             .frame(width: screenWidth, height: 50)
@@ -85,7 +99,7 @@ struct SignInView: View {
         })
         .onAppear {
 
-            if environmentConfiguration.names.count > 0, let name = environmentConfiguration.names.first {
+            if !environmentConfiguration.names.isEmpty, let name = environmentConfiguration.names.first {
                 selection = name
                 environmentConfiguration.selectEnvironment(name: name)
             }

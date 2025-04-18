@@ -1,0 +1,607 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-module-flags: -target arm64-apple-ios18.4-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name VehicleConnectSDK
+// swift-module-flags-ignorable:  -interface-compiler-version 6.1
+import AppAuth
+import Foundation
+import Security
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import os.lock
+import os
+@_hasMissingDesignatedInitializers public class AuthManager {
+  nonisolated(unsafe) public static let shared: VehicleConnectSDK.AuthManager
+  @VehicleConnectSDK.Injected public var authProtocol: any VehicleConnectSDK.AuthProtocol {
+    get
+    set
+    _modify
+  }
+  @objc deinit
+}
+public struct RemoteEventStatusRequest {
+  public init(userId: Swift.String, vehicleId: Swift.String, reuestId: Swift.String)
+}
+public enum RequestMethod : Swift.String {
+  case delete
+  case get
+  case patch
+  case post
+  case put
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct DataError : Swift.Decodable {
+  public var detailedErrorCode: Swift.String?
+  public var message: Swift.String
+  public var code: Swift.String?
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum DeviceAssociationStatus : Swift.String, Swift.Codable {
+  case initiated
+  case associated
+  case disAssociated
+  case disAssociatedFailed
+  case suspended
+  case invalid
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct DeviceAssociation : Swift.Codable {
+  public var message: Swift.String? {
+    get
+  }
+  public var code: Swift.String? {
+    get
+  }
+  public var associationId: Swift.Int64? {
+    get
+  }
+  public var status: VehicleConnectSDK.DeviceAssociationStatus? {
+    get
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ImeiVerification : Swift.Codable {
+  public var manufacturingDate: Swift.Double {
+    get
+  }
+  public var recordDate: Swift.Double {
+    get
+  }
+  public var createdDate: Swift.Double {
+    get
+  }
+  public var model: Swift.String? {
+    get
+  }
+  public var imei: Swift.String? {
+    get
+  }
+  public var serialNumber: Swift.String? {
+    get
+  }
+  public var packageSerialNumber: Swift.String? {
+    get
+  }
+  public var platformVersion: Swift.String? {
+    get
+  }
+  public var iccid: Swift.String? {
+    get
+  }
+  public var ssid: Swift.String? {
+    get
+  }
+  public var bssid: Swift.String? {
+    get
+  }
+  public var msisdn: Swift.String? {
+    get
+  }
+  public var imsi: Swift.String? {
+    get
+  }
+  public var factoryAdmin: Swift.String? {
+    get
+  }
+  public var state: Swift.String? {
+    get
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+@propertyWrapper public struct Injected<T> {
+  public var wrappedValue: T {
+    get
+    set
+  }
+}
+public struct RemoteEventRequestStatus : Swift.Codable {
+  public var message: Swift.String?, requestId: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct RemoteEventUpdateRequest {
+  public init(userId: Swift.String, vehicleId: Swift.String, stateType: VehicleConnectSDK.RemoteEventStateType?, postData: VehicleConnectSDK.RemoteEventUpdateData?)
+}
+public struct RemoteEventUpdateData {
+  public init(state: VehicleConnectSDK.RemoteEventStateValue, percent: Swift.Int?, duration: Swift.Int?)
+  public var param: [Swift.String : Any] {
+    get
+  }
+}
+public protocol VehicleServiceable {
+  func getVehicleProfile(request: VehicleConnectSDK.VehicleProfileRequest) async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.VehicleProfileCollection>, VehicleConnectSDK.CustomError>
+  func getAssociatedVehicles() async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.Vehicles>, VehicleConnectSDK.CustomError>
+  func updateVehicleProfile(_ request: VehicleConnectSDK.UpdateProfileRequest) async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.UpdateVehicleResponse>, VehicleConnectSDK.CustomError>
+  func validateIMEI(_ request: VehicleConnectSDK.ValidateImeiRequest) async -> Swift.Result<VehicleConnectSDK.Response<[VehicleConnectSDK.ImeiVerification]>, VehicleConnectSDK.CustomError>
+  func addDevice(_ request: VehicleConnectSDK.AssociateRequest) async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.DeviceAssociation>, VehicleConnectSDK.CustomError>
+  func removeDevice(_ reqParams: VehicleConnectSDK.TerminateRequest) async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.DeviceTermination>, VehicleConnectSDK.CustomError>
+}
+public struct VehicleService : VehicleConnectSDK.VehicleServiceable {
+  public init()
+  public func getVehicleProfile(request: VehicleConnectSDK.VehicleProfileRequest) async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.VehicleProfileCollection>, VehicleConnectSDK.CustomError>
+  public func getAssociatedVehicles() async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.Vehicles>, VehicleConnectSDK.CustomError>
+  public func updateVehicleProfile(_ request: VehicleConnectSDK.UpdateProfileRequest) async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.UpdateVehicleResponse>, VehicleConnectSDK.CustomError>
+  public func validateIMEI(_ request: VehicleConnectSDK.ValidateImeiRequest) async -> Swift.Result<VehicleConnectSDK.Response<[VehicleConnectSDK.ImeiVerification]>, VehicleConnectSDK.CustomError>
+  public func addDevice(_ request: VehicleConnectSDK.AssociateRequest) async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.DeviceAssociation>, VehicleConnectSDK.CustomError>
+  public func removeDevice(_ request: VehicleConnectSDK.TerminateRequest) async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.DeviceTermination>, VehicleConnectSDK.CustomError>
+}
+public enum NetworkError : Swift.Error {
+  case invalidURL
+  case noResponse
+  case unauthorized
+  case unexpectedStatusCode
+  case unknown(Swift.String)
+  case dataValidation(Foundation.Data)
+}
+public struct UpdateVehicleResponse : Swift.Codable {
+  public var message: Swift.String?
+  public var data: Swift.Bool?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public protocol RemoteOperationServiceable {
+  func getROHistory(_ request: VehicleConnectSDK.RemoteOperationHistoryRequest) async -> Swift.Result<VehicleConnectSDK.Response<[VehicleConnectSDK.RemoteEventHistory]>, VehicleConnectSDK.CustomError>
+  func getRORequest(_ request: VehicleConnectSDK.RemoteEventStatusRequest) async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.RemoteEventHistory>, VehicleConnectSDK.CustomError>
+  func setRORequest(_ request: VehicleConnectSDK.RemoteEventUpdateRequest) async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.RemoteEventRequestStatus>, VehicleConnectSDK.CustomError>
+}
+public struct RemoteOperationService : VehicleConnectSDK.RemoteOperationServiceable {
+  public init()
+  public func getROHistory(_ request: VehicleConnectSDK.RemoteOperationHistoryRequest) async -> Swift.Result<VehicleConnectSDK.Response<[VehicleConnectSDK.RemoteEventHistory]>, VehicleConnectSDK.CustomError>
+  public func getRORequest(_ request: VehicleConnectSDK.RemoteEventStatusRequest) async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.RemoteEventHistory>, VehicleConnectSDK.CustomError>
+  public func setRORequest(_ request: VehicleConnectSDK.RemoteEventUpdateRequest) async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.RemoteEventRequestStatus>, VehicleConnectSDK.CustomError>
+}
+public struct DeviceTokenRequest : Swift.Codable {
+  public let vehicleId: Swift.String
+  public let userId: Swift.String
+  public let postData: [VehicleConnectSDK.ChannelData]
+  public init(vehicleId: Swift.String, userId: Swift.String, postData: [VehicleConnectSDK.ChannelData])
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ChannelData : Swift.Codable {
+  public let group: Swift.String
+  public let channels: [VehicleConnectSDK.Channel]
+  public let enabled: Swift.Bool
+  public init(group: Swift.String, channels: [VehicleConnectSDK.Channel], enabled: Swift.Bool)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Channel : Swift.Codable {
+  public let appPlatform: Swift.String
+  public let type: Swift.String
+  public let enabled: Swift.Bool
+  public let deviceTokens: [Swift.String]
+  public let service: Swift.String
+  public init(appPlatform: Swift.String, type: Swift.String, enabled: Swift.Bool, deviceTokens: [Swift.String], service: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Vehicles : Swift.Codable {
+  public let vehiclesList: [VehicleConnectSDK.Vehicle]?
+  public let message: Swift.String?
+  public let code: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Vehicle : Swift.Codable {
+  public let imsi: Swift.String?
+  public let state: Swift.String?
+  public let serialNumber: Swift.String?
+  public let iccid: Swift.String?
+  public let msisdn: Swift.String?
+  public let stolen: Swift.Bool?
+  public let imei: Swift.String?
+  public let bssid: Swift.String?
+  public let ssid: Swift.String?
+  public let deviceType: Swift.String?
+  public let model: Swift.String?
+  public let associationStatus: Swift.String?
+  public let associatedOn: Swift.String?
+  public let deviceId: Swift.String?
+  public let softwareVersion: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct NotificationRequest : Swift.Codable {
+  public let vehicleId: Swift.String
+  public let query: VehicleConnectSDK.QueryData
+  public init(vehicleId: Swift.String, query: VehicleConnectSDK.QueryData)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct QueryData : Swift.Codable {
+  public let from: Swift.String
+  public let till: Swift.String
+  public let alertType: Swift.String
+  public let readStatus: Swift.String
+  public let page: Swift.Int
+  public let size: Swift.Int
+  public init(from: Swift.String, till: Swift.String, alertType: Swift.String, readStatus: Swift.String, page: Swift.Int, size: Swift.Int)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ValidateImeiRequest : Swift.Codable {
+  public init(imei: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum RemoteCommandStatus : Swift.String, Swift.Codable {
+  case success
+  case pending
+  case ttlExpired
+  case failed
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct RemoteEventHistory : Swift.Codable {
+  public let roEvent: VehicleConnectSDK.RemoteEvent
+  public let roStatus: VehicleConnectSDK.RemoteCommandStatus?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct RemoteEvent : Swift.Codable {
+  public let eventId: Swift.String, version: Swift.String
+  public let timestamp: Swift.Int
+  public let roDetail: VehicleConnectSDK.RemoteEventDetail
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct RemoteEventDetail : Swift.Codable {
+  public let state: Swift.String
+  public let duration: Swift.Int?, percent: Swift.Int?
+  public let roRequestId: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct VehicleAlerts : Swift.Codable {
+  public var alerts: [VehicleConnectSDK.Alert]
+  public var pagination: VehicleConnectSDK.PaginationInfo?
+  public var read: [Swift.String]?
+  public var unread: [Swift.String]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Alert : Swift.Codable {
+  public var alertType: Swift.String?
+  public var pdid: Swift.String?
+  public var timestamp: Foundation.TimeInterval?
+  public var alertMessage: Swift.String?
+  public var status: Swift.String?
+  public var alertId: Swift.String?
+  public var globalDoorLockStatus: Swift.Int?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PaginationInfo : Swift.Codable {
+  public var page: Swift.Int
+  public var size: Swift.Int
+  public var total: VehicleConnectSDK.RecoardInfo?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct RecoardInfo : Swift.Codable {
+  public var records: Swift.Int
+  public var pages: Swift.Int
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct AppManager {
+  nonisolated(unsafe) public static var currentEnvironment: VehicleConnectSDK.EnvironmentDetail?
+  public static var environment: VehicleConnectSDK.EnvironmentDetail? {
+    get
+  }
+  public static func configure(_ environment: VehicleConnectSDK.EnvironmentDetail)
+}
+public struct AssociateRequest : Swift.Codable {
+  public init(imei: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct VehicleProfileRequest : Swift.Codable {
+  public init(vehicleId: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum DebugPrint {
+  public static func info(_ text: Swift.String, _ fileName: Swift.String = #file, _ function: Swift.String = #function, _ line: Swift.Int = #line)
+}
+public struct VehicleProfileCollection : Swift.Codable {
+  public var message: Swift.String?
+  public var data: [VehicleConnectSDK.VehicleProfile]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct VehicleProfile : Swift.Codable {
+  public var id: Swift.String?
+  public var role: Swift.String?
+  public var vin: Swift.String?
+  public var createdOn: Swift.Double?
+  public var updatedOn: Swift.Double?
+  public var vehicleAttributes: VehicleConnectSDK.VehicleAttribute?
+  public var authorizedUsers: [VehicleConnectSDK.AuthorizedUser]?
+  public var modemInfo: VehicleConnectSDK.ModemInfo?
+  public var vehicleArchType: Swift.String?
+  public var ecus: VehicleConnectSDK.Ecus?
+  public var deviceId: Swift.String?
+  public mutating func updateModem(info: VehicleConnectSDK.ModemInfo)
+  public mutating func updateDeviceId(id: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct AuthorizedUser : Swift.Codable {
+  public var id: Swift.String?
+  public var role: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct VehicleAttribute : Swift.Codable {
+  public var make: Swift.String?
+  public var model: Swift.String?
+  public var marketingColor: Swift.String?
+  public var baseColor: Swift.String?
+  public var modelYear: Swift.String?
+  public var destinationCountry: Swift.String?
+  public var engineType: Swift.String?
+  public var bodyStyle: Swift.String?
+  public var bodyType: Swift.String?
+  public var name: Swift.String?
+  public var type: Swift.String?
+  public var fuelType: Swift.String?
+  public init(name: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ModemInfo : Swift.Codable {
+  public var id: Swift.String?
+  public var iccid: Swift.String?
+  public var imei: Swift.String?
+  public var msisdn: Swift.String?
+  public var imsi: Swift.String?
+  public var deviceType: Swift.String?
+  public var state: Swift.String?
+  public var firmareVersion: Swift.String?
+  public init(id: Swift.String?, iccid: Swift.String?, imei: Swift.String?, msisdn: Swift.String?, imsi: Swift.String?, deviceType: Swift.String?, state: Swift.String?, firmwareVersion: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Ecus : Swift.Codable {
+  public var dongle: VehicleConnectSDK.DeviceInfo?
+  public var dashcam: VehicleConnectSDK.DeviceInfo?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeviceInfo : Swift.Codable {
+  public var serialNo: Swift.String?
+  public var clientId: Swift.String?
+  public var capabilities: VehicleConnectSDK.Capabilities?
+  public var provisionedServices: VehicleConnectSDK.Capabilities?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Capabilities : Swift.Codable {
+  public var services: [VehicleConnectSDK.Service]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Service : Swift.Codable {
+  public var applicationId: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeviceTermination : Swift.Codable {
+  public var message: Swift.String?
+  public var code: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public protocol NotificationServiceable {
+  func getAlerts(_ request: VehicleConnectSDK.NotificationRequest) async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.VehicleAlerts>, VehicleConnectSDK.CustomError>
+  func shareDeviceToken(_ request: VehicleConnectSDK.DeviceTokenRequest) async -> Swift.Result<VehicleConnectSDK.Response<Swift.Bool>, VehicleConnectSDK.CustomError>
+}
+public struct NotificationService : VehicleConnectSDK.NotificationServiceable {
+  public init()
+  public func getAlerts(_ request: VehicleConnectSDK.NotificationRequest) async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.VehicleAlerts>, VehicleConnectSDK.CustomError>
+  public func shareDeviceToken(_ request: VehicleConnectSDK.DeviceTokenRequest) async -> Swift.Result<VehicleConnectSDK.Response<Swift.Bool>, VehicleConnectSDK.CustomError>
+}
+public protocol UserServiceable {
+  func signInWithAppAuth(_ vc: UIKit.UIViewController) async -> Swift.Result<Swift.Bool, VehicleConnectSDK.CustomError>
+  func signUpWithAppAuth(_ vc: UIKit.UIViewController) async -> Swift.Result<Swift.Bool, VehicleConnectSDK.CustomError>
+  func signOutWithAppAuth() async -> Swift.Result<Swift.Bool, VehicleConnectSDK.CustomError>
+  func getUserProfile() async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.UserProfile>, VehicleConnectSDK.CustomError>
+  func changePassword() async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.ChangePassword>, VehicleConnectSDK.CustomError>
+  func refreshAccessToken() async -> Swift.Result<Swift.Bool, VehicleConnectSDK.CustomError>
+  func isAuthorizationExpired() -> Swift.Bool
+}
+public struct UserService : VehicleConnectSDK.UserServiceable {
+  public init()
+  public func signInWithAppAuth(_ vc: UIKit.UIViewController) async -> Swift.Result<Swift.Bool, VehicleConnectSDK.CustomError>
+  public func signUpWithAppAuth(_ vc: UIKit.UIViewController) async -> Swift.Result<Swift.Bool, VehicleConnectSDK.CustomError>
+  public func signOutWithAppAuth() async -> Swift.Result<Swift.Bool, VehicleConnectSDK.CustomError>
+  public func refreshAccessToken() async -> Swift.Result<Swift.Bool, VehicleConnectSDK.CustomError>
+  public func isAuthorizationExpired() -> Swift.Bool
+  public func getUserProfile() async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.UserProfile>, VehicleConnectSDK.CustomError>
+  public func changePassword() async -> Swift.Result<VehicleConnectSDK.Response<VehicleConnectSDK.ChangePassword>, VehicleConnectSDK.CustomError>
+}
+public protocol AuthProtocol {
+  var accessToken: Swift.String { get set }
+  var refreshToken: Swift.String { get set }
+  var tokenType: Swift.String { get set }
+  var scope: Swift.String { get set }
+  var accessTokenExpirationDate: Foundation.Date { get set }
+  var additionalParameters: [Swift.AnyHashable : Any] { get set }
+  func signIn(_ vc: UIKit.UIViewController) async -> Swift.Result<Swift.Bool, VehicleConnectSDK.CustomError>
+  func signUp(_ vc: UIKit.UIViewController) async -> Swift.Result<Swift.Bool, VehicleConnectSDK.CustomError>
+  func signOut() async -> Swift.Result<Swift.Bool, VehicleConnectSDK.CustomError>
+  func refreshAccessToken() async -> Swift.Result<Swift.Bool, VehicleConnectSDK.CustomError>
+  func isAuthorizedUser() -> Swift.Bool
+  func isAuthorizationExpired() -> Swift.Bool
+}
+public protocol Endpoint {
+  var baseUrl: Swift.String { get }
+  var path: Swift.String { get }
+  var method: VehicleConnectSDK.RequestMethod { get }
+  var header: [Swift.String : Swift.String]? { get }
+  var body: Any? { get }
+}
+public enum CustomError : Swift.Error {
+  case networkError(VehicleConnectSDK.NetworkError)
+  case notRechable
+  case decode
+  case emptyToken
+  case alreadySignin
+  case refreshTokenFailed
+  case invalidRequest
+  case environmentNotConfigured
+  case generic(Swift.String)
+  public var message: Swift.String {
+    get
+  }
+}
+extension Swift.String {
+  public var isValidURL: Swift.Bool {
+    get
+  }
+  public var json: Any {
+    get
+  }
+}
+public protocol HTTPClientProtocol {
+  func sendRequest(endpoint: any VehicleConnectSDK.Endpoint) async -> Swift.Result<Foundation.Data, VehicleConnectSDK.NetworkError>
+}
+public struct UpdateProfileRequest : Swift.Codable {
+  public let vehicleId: Swift.String
+  public let params: VehicleConnectSDK.Attributes
+  public init(vehicleId: Swift.String, params: VehicleConnectSDK.Attributes)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Attributes : Swift.Codable {
+  public let vehicleAttributes: VehicleConnectSDK.VehicleAttribute
+  public init(vehicleAttributes: VehicleConnectSDK.VehicleAttribute)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ChangePassword : Swift.Codable {
+  public var status: Swift.Bool?
+  public var message: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum RemoteEventStateType : Swift.String {
+  case alarm
+  case windows
+  case lights
+  case trunk
+  case doors
+  case engine
+  case horn
+  case alarmSignal
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum RemoteEventStateValue : Swift.String {
+  case stateOn
+  case stateOff
+  case flash
+  case locked
+  case unlocked
+  case stopped
+  case started
+  case closed
+  case opened
+  case ajar
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct RemoteOperationHistoryRequest {
+  public init(userId: Swift.String, vehicleId: Swift.String)
+}
+public struct EnvironmentDetail : Swift.Codable {
+  public let title: Swift.String
+  public let clientId: Swift.String
+  public let clientSecret: Swift.String
+  public let baseUrl: Swift.String
+  public var profileURL: Swift.String
+  public let signInUrl: Swift.String
+  public let signUpUrl: Swift.String
+  public let redirectUrl: Swift.String
+  public let compatibilityUrl: Swift.String?
+  public let scopes: [Swift.String]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct TerminateRequest : Swift.Codable {
+  public init(imei: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct UserProfile : Swift.Codable {
+  public var id: Swift.String?
+  public var userName: Swift.String?
+  public var status: Swift.String?
+  public var firstName: Swift.String?
+  public var lastName: Swift.String?
+  public var email: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Response<T> where T : Swift.Decodable {
+  public var data: Foundation.Data
+  public var model: T
+}
+extension VehicleConnectSDK.RequestMethod : Swift.Equatable {}
+extension VehicleConnectSDK.RequestMethod : Swift.Hashable {}
+extension VehicleConnectSDK.RequestMethod : Swift.RawRepresentable {}
+extension VehicleConnectSDK.DeviceAssociationStatus : Swift.Equatable {}
+extension VehicleConnectSDK.DeviceAssociationStatus : Swift.Hashable {}
+extension VehicleConnectSDK.DeviceAssociationStatus : Swift.RawRepresentable {}
+extension VehicleConnectSDK.RemoteCommandStatus : Swift.Equatable {}
+extension VehicleConnectSDK.RemoteCommandStatus : Swift.Hashable {}
+extension VehicleConnectSDK.RemoteCommandStatus : Swift.RawRepresentable {}
+extension VehicleConnectSDK.RemoteEventStateType : Swift.Equatable {}
+extension VehicleConnectSDK.RemoteEventStateType : Swift.Hashable {}
+extension VehicleConnectSDK.RemoteEventStateType : Swift.RawRepresentable {}
+extension VehicleConnectSDK.RemoteEventStateValue : Swift.Equatable {}
+extension VehicleConnectSDK.RemoteEventStateValue : Swift.Hashable {}
+extension VehicleConnectSDK.RemoteEventStateValue : Swift.RawRepresentable {}

@@ -100,7 +100,7 @@ class RemoteOperationViewModel: ObservableObject {
             }
         }
     }
-    
+
     private func handleHistory(response: Response<[RemoteEventHistory]>) {
         self.history = response.model
         let commands = (response.model.filter { $0.roStatus == .success || $0.roStatus == .pending })
@@ -108,7 +108,7 @@ class RemoteOperationViewModel: ObservableObject {
             self.updateCommand(command, command.roStatus!)
         }
     }
-    
+
     private func handleErrorMessage(_ error: CustomError) {
         alertMessage = error.message
         if !alertMessage.isEmpty {
@@ -190,8 +190,7 @@ class RemoteOperationViewModel: ObservableObject {
                 let apiTime = TimeInterval(commandHistory.roEvent.timestamp / 1000)
                 let difference = currentTime - apiTime
                 command.commandStatus = difference < kDefaultDuration ? .pending : .success
-            }
-            else {
+            } else {
                 command.commandStatus = .success
                 command.stateValue = value
                 if command.stateType == .windows || command.stateType == .lights {

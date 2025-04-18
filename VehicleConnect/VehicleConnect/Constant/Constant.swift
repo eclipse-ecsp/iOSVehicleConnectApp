@@ -18,7 +18,7 @@
 
 import Foundation
 
-let kAlertTitle = "Harman"
+let kAlertTitle = "Vehicle Connect"
 let kSignInFailed = "Sign in failed."
 let kSignIn = "SIGN IN"
 let kSignUp = "SIGN UP"
@@ -95,4 +95,5 @@ let kRemoteOperationFailed = " Remote Operation Failed"
 let kConfirm = "Confirm"
 let kCancel = "Cancel"
 
+let kChangePasswordSuccess = "Successfully triggered password change request, you will get link on your email to change the password"
 // Notifications Constant

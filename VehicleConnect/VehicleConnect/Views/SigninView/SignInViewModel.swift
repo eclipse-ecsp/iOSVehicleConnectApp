@@ -18,6 +18,7 @@
 
 import Foundation
 import VehicleConnectSDK
+import UIKit
 
 /// SignIn View model containing service call and business logics
 class SignInViewModel: ObservableObject {
@@ -37,19 +38,21 @@ extension SignInViewModel {
     /// SIgnIn service call
     func signIn(_ completion: @escaping (Bool) -> Void) {
         Task { @MainActor in
-            let result = await service.signInWithAppAuth()
-            switch result {
-            case .success:
-                completion(true)
-            case .failure(let error):
-                switch error {
-                case .environmentNotConfigured, .notRechable:
-                    showingAlert = true
-                    alertMessage = error.message
-                default:
-                    showingAlert = false
+            if let vc = UIApplication.shared.rootViewController {
+                let result = await self.service.signInWithAppAuth(vc)
+                switch result {
+                case .success:
+                    completion(true)
+                case .failure(let error):
+                    switch error {
+                    case .environmentNotConfigured, .notRechable:
+                        showingAlert = true
+                        alertMessage = error.message
+                    default:
+                        showingAlert = false
+                    }
+                    completion(false)
                 }
-                completion(false)
             }
         }
     }
@@ -57,19 +60,21 @@ extension SignInViewModel {
     /// SignUp service call
     func signUp(_ completion: @escaping (Bool) -> Void) {
         Task { @MainActor in
-            let result = await service.signUpWithAppAuth()
-            switch result {
-            case .success:
-                completion(true)
-            case .failure(let error):
-                switch error {
-                case .environmentNotConfigured, .notRechable:
-                    showingAlert = true
-                    alertMessage = error.message
-                default:
-                    showingAlert = false
+            if let vc = UIApplication.shared.rootViewController {
+                let result = await service.signUpWithAppAuth(vc)
+                switch result {
+                case .success:
+                    completion(true)
+                case .failure(let error):
+                    switch error {
+                    case .environmentNotConfigured, .notRechable:
+                        showingAlert = true
+                        alertMessage = error.message
+                    default:
+                        showingAlert = false
+                    }
+                    completion(false)
                 }
-                completion(false)
             }
         }
     }
@@ -102,6 +107,18 @@ extension SignInViewModel {
         }
     }
 
+    ///  Change password service  call
+    func changePassword(_ completion: @escaping (Bool) -> Void) {
+        Task { @MainActor in
+            let result = await service.changePassword()
+            switch result {
+            case .success:
+                completion(true)
+            case .failure:
+                completion(false)
+            }
+        }
+    }
     /// Check token is valid
     func isNotValidToken() -> Bool {
         return service.isAuthorizationExpired()

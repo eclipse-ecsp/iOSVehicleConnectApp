@@ -67,7 +67,7 @@ extension NotificationViewModel {
         Task { @MainActor in
             let vehicleId = Helper.getSelectedVehicleId()
             let userId = Helper.getUserEmail()
-            let token = Helper.getSDeviceToken()
+            let token = Helper.getDeviceToken()
             let channel = Channel(appPlatform: "iOS", type: "push", enabled: true,
                                   deviceTokens: [token], service: "apns")
             let data = ChannelData(group: "all", channels: [channel], enabled: true)

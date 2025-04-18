@@ -63,7 +63,7 @@ struct NotificationView: View {
                 DispatchQueue.main.async {
                     if success {
                         if let alerts = viewModel.vehicleAlerts?.alerts {
-                            if alerts.count>0 {
+                            if !alerts.isEmpty {
                                 isAvailable = false
                             }
                         }
@@ -71,7 +71,7 @@ struct NotificationView: View {
                     }
                 }
             }
-            let token = Helper.getSDeviceToken()
+            let token = Helper.getDeviceToken()
             let isTokenShared = Helper.getIsDeviceTokenShared()
             if !token.isEmpty && !isTokenShared {
                 viewModel.shareDeviceToken { success in

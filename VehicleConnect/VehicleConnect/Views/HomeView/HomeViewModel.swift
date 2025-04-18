@@ -107,9 +107,9 @@ extension HomeViewModel {
     func refreshVehicleList() {
                 self.getVehicles { vehicles in
                     self.vehicles = vehicles
-                    if self.vehicles.count > 0 {
+                    if !self.vehicles.isEmpty {
                         self.vehicleNames = vehicles.map { $0.vehicleAttributes?.name ?? ""}
-                        if self.vehicleNames.count > 0, let firstVehicle = self.vehicleNames.first {
+                        if !self.vehicleNames.isEmpty, let firstVehicle = self.vehicleNames.first {
                             if !self.vehicleNames.contains(self.selectedVehicle) {
                                 self.selectedVehicle = firstVehicle
                             }

@@ -81,7 +81,7 @@ struct Helper {
         kUserDefault.setValue(token, forKey: "DeviceToken")
         kUserDefault.synchronize()
     }
-    static func getSDeviceToken() -> String {
+    static func getDeviceToken() -> String {
         return kUserDefault.string(forKey: "DeviceToken") ?? ""
     }
     static func setIsDeviceTokenShared(isShared: Bool) {
@@ -119,5 +119,4 @@ struct Helper {
         UserDefaults.standard.removeObject(forKey: "SelectedVehicleProfile")
 
     }
-
 }
