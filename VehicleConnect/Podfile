@@ -8,6 +8,7 @@ target 'VehicleConnect' do
   # Pods for VehicleConnect
     pod 'AppAuth', '1.7.6'
     pod 'SwiftLint'
+    pod 'VehicleConnectSDK'
   
   target 'VehicleConnectTests' do
     inherit! :search_paths

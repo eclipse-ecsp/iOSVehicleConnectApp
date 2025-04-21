@@ -6,20 +6,25 @@ PODS:
   - AppAuth/ExternalUserAgent (1.7.6):
     - AppAuth/Core
   - SwiftLint (0.55.1)
+  - VehicleConnectSDK (1.0.1):
+    - AppAuth
 
 DEPENDENCIES:
   - AppAuth (= 1.7.6)
   - SwiftLint
+  - VehicleConnectSDK
 
 SPEC REPOS:
   trunk:
     - AppAuth
     - SwiftLint
+    - VehicleConnectSDK
 
 SPEC CHECKSUMS:
   AppAuth: d4f13a8fe0baf391b2108511793e4b479691fb73
   SwiftLint: 3fe909719babe5537c552ee8181c0031392be933
+  VehicleConnectSDK: 96f2f9decff952c4c43b574e0cda095cbb99868c
 
-PODFILE CHECKSUM: 9dbd1fdd217aa597bff51f3bf4b4f584aac376aa
+PODFILE CHECKSUM: c6f41c1a3daffa43294f7cf15a66ee9f0d7ad439
 
 COCOAPODS: 1.16.2

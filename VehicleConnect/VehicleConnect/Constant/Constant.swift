@@ -30,6 +30,7 @@ let kSignOutMessage = "Are you sure you want to Sign Out?"
 let kAdd = "Add"
 let kNext = "Next"
 let kAddDevce = "Add Device"
+let kOk = "OK"
 
 let kSettings = "Settings"
 let kRemoteControls = "Remote Controls"

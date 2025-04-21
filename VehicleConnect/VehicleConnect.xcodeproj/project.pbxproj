@@ -36,8 +36,6 @@
 		505FD56E2BD5407300ABAB7C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505FD56D2BD5407300ABAB7C /* NotificationView.swift */; };
 		5060DCFB2BE02D0300FF9676 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060DCFA2BE02D0300FF9676 /* Date.swift */; };
 		506764182BE2542C002FAFE8 /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506764172BE2542C002FAFE8 /* UpdateProfileView.swift */; };
-		5067641B2BE26AF7002FAFE8 /* VehicleConnectSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506764192BE26AEE002FAFE8 /* VehicleConnectSDK.framework */; };
-		5067641C2BE26AF7002FAFE8 /* VehicleConnectSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 506764192BE26AEE002FAFE8 /* VehicleConnectSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50A8CCF62B8B456700D101FA /* VehicleAssociationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CCF52B8B456700D101FA /* VehicleAssociationView.swift */; };
 		50A8CCF82B8B45B700D101FA /* VehicleAssociationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8CCF72B8B45B700D101FA /* VehicleAssociationViewModel.swift */; };
 		50AA97C52BB6804800B1FDE3 /* RemoteCommandDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA97C42BB6804800B1FDE3 /* RemoteCommandDataModel.swift */; };
@@ -78,7 +76,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5067641C2BE26AF7002FAFE8 /* VehicleConnectSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,7 +118,6 @@
 		505FD56D2BD5407300ABAB7C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		5060DCFA2BE02D0300FF9676 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		506764172BE2542C002FAFE8 /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
-		506764192BE26AEE002FAFE8 /* VehicleConnectSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VehicleConnectSDK.framework; sourceTree = "<group>"; };
 		50A8CCF52B8B456700D101FA /* VehicleAssociationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleAssociationView.swift; sourceTree = "<group>"; };
 		50A8CCF72B8B45B700D101FA /* VehicleAssociationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleAssociationViewModel.swift; sourceTree = "<group>"; };
 		50AA97C42BB6804800B1FDE3 /* RemoteCommandDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCommandDataModel.swift; sourceTree = "<group>"; };
@@ -155,7 +151,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5067641B2BE26AF7002FAFE8 /* VehicleConnectSDK.framework in Frameworks */,
 				284C262FCE8812B3CF7B3B72 /* Pods_VehicleConnect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,7 +232,6 @@
 		5037B8C02B764FFE00873DAF /* VehicleConnect */ = {
 			isa = PBXGroup;
 			children = (
-				506764192BE26AEE002FAFE8 /* VehicleConnectSDK.framework */,
 				500CC8092BCEA78900873FB5 /* VehicleConnect.entitlements */,
 				500CC8082BCEA73D00873FB5 /* Info.plist */,
 				505ACA5D2BBAC4B800042F33 /* Helper */,
@@ -613,13 +607,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VehicleConnect/Pods-VehicleConnect-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VehicleConnect/Pods-VehicleConnect-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -641,8 +631,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "\n";
 		};
 		E82414BF115BA30BF7AEF542 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -696,13 +685,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VehicleConnect-VehicleConnectUITests/Pods-VehicleConnect-VehicleConnectUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VehicleConnect-VehicleConnectUITests/Pods-VehicleConnect-VehicleConnectUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

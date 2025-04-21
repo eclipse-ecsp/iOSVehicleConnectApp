@@ -22,6 +22,15 @@ let kScreenHeight = UIScreen.main.bounds.height
 import SwiftUI
 import VehicleConnectSDK
 
+enum SettingsAlertType: Identifiable {
+    case signOut
+    case changePassword
+
+    var id: Int {
+        hashValue
+    }
+}
+
 /// settings view
 struct SettingsView: View {
     @StateObject var viewModel = SettingsViewModel()
@@ -30,11 +39,11 @@ struct SettingsView: View {
 
     @EnvironmentObject var appAuthentication: AppAuthentication
     @State private var showLoading = false
-    @State private var showingAlert = false
     @State private var showingChangePasswordAlert = false
     @State private var userEmail = Helper.getUserEmail()
     @State private var selectedVehicle = Helper.getSelectedVehicleName()
-
+    @State private var activeAlert: SettingsAlertType?
+    
     var body: some View {
         ZStack {
             List {
@@ -53,7 +62,7 @@ struct SettingsView: View {
                                         self.showLoading = true
                                         userViewModel.changePassword { isSuccess in
                                             if isSuccess {
-                                                self.showingChangePasswordAlert = true
+                                                activeAlert = .changePassword
                                             }
                                             self.showLoading = false
                                         }
@@ -78,7 +87,7 @@ struct SettingsView: View {
                                     Text(viewModel.getBuildVersion())
                                 case .signOut:
                                     Button(action: {
-                                        self.showingAlert = true
+                                        activeAlert = .signOut
                                     }, label: {
                                         Text(row.title)
                                             .font(.subheadline)
@@ -94,23 +103,29 @@ struct SettingsView: View {
                 LoadingView()
             }
         }
-        .alert(isPresented: $showingAlert) {
-            Alert(
-                title: Text(kAlertTitle),
-                message: Text(kSignOutMessage),
-                primaryButton: .destructive(Text(kSignOut)) {
-                    userViewModel.signout { isSuccess in
-                        if isSuccess {
-                            self.appAuthentication.updateValidation(success: false)
+        .alert(item: $activeAlert) { alertType in
+            switch alertType {
+            case .signOut:
+                return Alert(
+                    title: Text(kAlertTitle),
+                    message: Text(kSignOutMessage),
+                    primaryButton: .destructive(Text(kSignOut)) {
+                        userViewModel.signout { isSuccess in
+                            if isSuccess {
+                                self.appAuthentication.updateValidation(success: false)
+                            }
                         }
-                    }
-                },
-                secondaryButton: .cancel()
-            )
+                    },
+                    secondaryButton: .cancel()
+                )
+            case .changePassword:
+                return Alert(
+                    title: Text(kAlertTitle),
+                    message: Text(kChangePasswordSuccess),
+                    dismissButton: .default(Text(kOk))
+                )
+            }
         }
-        .alert(isPresented: $showingChangePasswordAlert, content: {
-            Alert(title: Text(kAlertTitle), message: Text(kChangePasswordSuccess))
-        })
         .onAppear {
             selectedVehicle = Helper.getSelectedVehicleName()
             userEmail = Helper.getUserEmail()
@@ -134,3 +149,5 @@ struct SettingsView: View {
     SettingsView()
         .environmentObject(AppAuthentication())
 }
+
+
