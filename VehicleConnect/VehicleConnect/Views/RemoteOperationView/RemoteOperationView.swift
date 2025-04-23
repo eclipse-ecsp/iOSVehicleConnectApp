@@ -93,9 +93,9 @@ struct RemoteOperationView: View {
             Text(viewModel.alertMessage)
         }
 
-        .alert(isPresented: $viewModel.showingAlert, content: {
-            Alert(title: Text(kAlertTitle), message: Text(viewModel.alertMessage))
-        })
+//        .alert(isPresented: $viewModel.showingAlert, content: {
+//            Alert(title: Text(kAlertTitle), message: Text(viewModel.alertMessage))
+//        })
         .onAppear {
             viewModel.addVehicleChangeNotification()
             viewModel.showingAlert = false

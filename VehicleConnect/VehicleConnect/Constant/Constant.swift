@@ -97,4 +97,5 @@ let kConfirm = "Confirm"
 let kCancel = "Cancel"
 
 let kChangePasswordSuccess = "Successfully triggered password change request, you will get link on your email to change the password"
+let kChangePasswordFailed = "Failed to trigger password change request"
 // Notifications Constant

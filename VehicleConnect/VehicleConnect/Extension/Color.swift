@@ -21,4 +21,5 @@ import SwiftUI
 
 extension Color {
     static let customBlue = Color("ThemeColor")
+    static let primaryTextColor = Color("PrimaryTextColor")
 }

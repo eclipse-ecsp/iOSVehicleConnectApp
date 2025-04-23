@@ -43,7 +43,8 @@ struct SettingsView: View {
     @State private var userEmail = Helper.getUserEmail()
     @State private var selectedVehicle = Helper.getSelectedVehicleName()
     @State private var activeAlert: SettingsAlertType?
-    
+    @State private var changePasswordMessage: String = ""
+
     var body: some View {
         ZStack {
             List {
@@ -61,15 +62,14 @@ struct SettingsView: View {
                                     Button(action: {
                                         self.showLoading = true
                                         userViewModel.changePassword { isSuccess in
-                                            if isSuccess {
-                                                activeAlert = .changePassword
-                                            }
+                                            self.changePasswordMessage = isSuccess ? kChangePasswordSuccess: kChangePasswordFailed
+                                            activeAlert = .changePassword
                                             self.showLoading = false
                                         }
                                     }, label: {
                                         Text(row.title)
                                             .font(.subheadline)
-                                            .foregroundColor(.black)
+                                            .foregroundColor(Color.primaryTextColor)
                                     })
                                 case .helpSupport, .privacyPolicy, .termsOfuse:
                                     Text(row.title)
@@ -121,7 +121,7 @@ struct SettingsView: View {
             case .changePassword:
                 return Alert(
                     title: Text(kAlertTitle),
-                    message: Text(kChangePasswordSuccess),
+                    message: Text(changePasswordMessage),
                     dismissButton: .default(Text(kOk))
                 )
             }
@@ -141,7 +141,6 @@ struct SettingsView: View {
                 }
             }
         }
-
     }
 }
 
@@ -149,5 +148,3 @@ struct SettingsView: View {
     SettingsView()
         .environmentObject(AppAuthentication())
 }
-
-

@@ -20,6 +20,12 @@ type_body_length:
   - 300 # warning
   - 400 # error
 
+line_length:
+  warning: 140
+  error: 180
+  ignores_comments: true
+  ignores_urls: true
+  
 # or they can set both explicitly
 file_length:
   warning: 500

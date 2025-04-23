@@ -12,26 +12,5 @@
         "scopes": [
             "SelfManage"
         ]
-    },
-    {
-            "title": "SDP QA",
-            "client_Id": "mobileapp-test",
-            "client_secret": "mobileapp123",
-            "base_url": "https://api-gateway.eks-ignite-qa.kqa.ignite.harman.com/",
-            "profile_url": "https://api-gateway3.eks-ignite-qa.kqa.ignite.harman.com/",
-            "signin_url": "https://uidam-authorization-server.eks-ignite-qa.kqa.ignite.harman.com/",
-            "signup_url": "https://uidam-authorization-server.eks-ignite-qa.kqa.ignite.harman.com/",
-            "redirect_url": "ignite://igniteauthorization",
-            "compatibility_url": "https://localhost:8080",
-            "scopes": [
-                "AssociateMyselfToVehicle",
-                "SubscribeMyselfToProducts",
-                "ViewMySubscriptions",
-                "SelfManage",
-                "ManageNotifications",
-                "ServiceConfiguration",
-                "ManageUsers",
-                "ManageUserRolesAndPermissions"
-            ]
-        }
+    }
 ]
