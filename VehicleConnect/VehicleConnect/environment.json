@@ -1,13 +1,13 @@
 [
     {
         "title": "Open Source",
-        "client_Id": "mobileapp-test",
-        "client_secret": "mobileapp123",
-        "base_url": "https://oss-api-gateway3.eks-ignite-qa.kqa.ignite.harman.com/",
-        "profile_url": "https://oss-api-gateway3.eks-ignite-qa.kqa.ignite.harman.com/",
-        "signin_url": "https://oss-uidam-authorization-server.eks-ignite-qa.kqa.ignite.harman.com/",
-        "signup_url": "https://oss-uidam-authorization-server.eks-ignite-qa.kqa.ignite.harman.com/",
-        "redirect_url": "ignite://igniteauthorization",
+        "client_Id": "client_id",
+        "client_secret": "client_secret",
+        "base_url": "https://localhost:8080/",
+        "profile_url": "https://localhost:8080/",
+        "signin_url": "https://localhost:8080/",
+        "signup_url": "https://localhost:8080/",
+        "redirect_url": "app://redirect_uri",
         "compatibility_url": "https://localhost:8080",
         "scopes": [
             "SelfManage"
